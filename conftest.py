@@ -11,7 +11,10 @@ def pytest_addoption(parser):
 def browser(request):
     language = request.config.getoption("language")
     options = Options()
-    options.add_experimental_option('prefs', {'intl.accept_languages': language})
+    if language:
+        options.add_experimental_option('prefs', {'intl.accept_languages': language})
+    else:
+        raise pytest.UsageError("--language should be es or ru")
     print("\nstart chrome browser for test..")
     browser = webdriver.Chrome(options=options)
     yield browser
