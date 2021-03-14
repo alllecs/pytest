@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/" #work
 #link = "http://selenium1py.pythonanywhere.com/catalogue/hackers-painters_185/" #does not work
 
-def test_check_add_to_basket(browser):
+def test_add_to_cart_button_is_displayed(browser):
     browser.get(link)
     try:
         button = browser.find_element_by_css_selector("#add_to_basket_form > .btn-add-to-basket")
