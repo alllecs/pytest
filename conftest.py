@@ -14,7 +14,7 @@ def browser(request):
     if language:
         options.add_experimental_option('prefs', {'intl.accept_languages': language})
     else:
-        raise pytest.UsageError("--language should be es or ru")
+        raise pytest.UsageError("--language should be es, ru or other")
     print("\nstart chrome browser for test..")
     browser = webdriver.Chrome(options=options)
     yield browser
